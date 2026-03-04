@@ -1,74 +1,70 @@
-# 系统设计速成（System Design - In a Hurry）中文翻译
+# System Design - In a Hurry（中文重译）
 
-> 原文链接：<https://www.notion.so/System-Design-In-a-Hurry-3183c5ca79eb8022ae5bea83328c2204?source=copy_link>
+原文：<https://www.notion.so/System-Design-In-a-Hurry-3183c5ca79eb8022ae5bea83328c2204?source=copy_link>
+
+> 说明：文中图片链接来自 Notion 导出的临时 URL，可能会过期；若失效请回到原文查看。
 
 ## 如何准备系统设计面试
 
-### 打基础（Build a Foundation）
-1. 理解什么是系统设计面试。
-2. 选择一个答题交付框架（delivery framework）。
-3. 从基础开始学习。
+### 1. 打好基础（Build a Foundation）
+1. 先理解系统设计面试到底在考什么。
+2. 选择一个稳定的答题交付框架（delivery framework）。
+3. 从基础内容开始。
 
-先阅读系统设计中的核心概念、关键技术和常见模式。这些内容通常是高层的，但它们可以帮助你建立后续推演所需的思维模型。
+建议先读系统设计里的核心概念、关键技术和常见模式。这些内容通常是高层抽象，但能帮你建立后续推演所需的心智模型。
 
-### 练习、练习、再练习（Practice Practice Practice）
-当基础具备后，就进入大量实战。被动阅读有帮助，但亲自做题能让你保留更多信息。
+### 2. 反复练习（Practice Practice Practice）
+基础建立后，重点是练。被动阅读有价值，但亲自做题的信息留存会更高。
 
-1. 选择一道题。
+1. 选一道题。
 2. 阅读需求。
 3. 先独立作答。
 4. 对照参考答案。
-5. 再次检验自己的掌握情况。
+5. 再做一次验证和复盘。
 
 ## 交付框架（Delivery Framework）
 
-交付框架的目标是让你的思路结构化，并始终聚焦最关键的部分。
+交付框架的目标是：让你结构化表达，并把时间放在最关键的部分。
 
-在系统设计面试里，最常见的失败原因之一是没有交付出一个“可工作的系统”。很多中级候选人的“时间管理问题”，本质上不是答题太慢，而是没有优先做对正确的事。
+系统设计面试里，最常见失败点之一是最后没交付出一个可工作的方案。中级候选人常被说“时间管理不好”，但很多时候不是速度不够，而是没有优先做对关键决策。
 
-我们建议用固定步骤和时间配比组织面试过程。这样你会把精力放在面试官最看重的点上，即使紧张也有可回退路径。
+我们推荐按固定步骤与时间配比推进。这样你可以持续聚焦面试官关注点，在压力下也有清晰回退路径。
 
----
+下面是框架图：
 
-### 1) 需求澄清（约 5 分钟）
-目标：明确你要设计的系统到底是什么。
+![Delivery Framework](https://prod-files-secure.s3.us-west-2.amazonaws.com/8abd5765-7fea-4ac2-b4e0-dcd6e92e0a76/18817d88-713e-43a2-8196-3911d8ce7ab8/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466ZXLCA7FA%2F20260304%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260304T075106Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQDsVegJzUDjOVzhPLG9owsPW6PXyH56tkSt3Qn1Th90kgIhAN4iuJawrJ18M39Xdx3efNVZTs685gkPIp2lgaBrsURwKogECLH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgyNRgmZWnCZ7vcJ0MMq3AMiyL0W%2B7NC0Pp5hSrBwh%2B3PksqjLZ20eq3bUVUTuGOKWK3kwrLKCBSyzyb52UO4tkcWIQ2Z1w8RbptgF2dgdWP5ruvL3hqBbCdZj6NqT9v7zFrPrtR0Me4huQPx1PGGrFA90MyCguSY59taT8GE%2BjwH8X5duLlOJiPFcRzIp2x8LtophHffOtQEnCdlqEdWXHLwcmybQ2EFEHyJD23ErXCNjQ6E6m%2FSjdq4OTkPS%2FB2OeVQs043h7B3TDi75vxfjDjxFBof8p6eYGQAigi0t6lA67r55b0kljiA7Ofl05OkIOzk%2Bt7kJTVveor6cpDZTd4nCRRP73JOTHyT7v%2FynQZoVThM6Tibz4HNatFsldBLZqYCFkSIoUAJczeV%2BoEO0jvtXe%2F4%2FvJqdmKnpIUrnnC7NWkYlp0SZLwaJKPJZLYSYwQFE3HUgfc9bZ6FFy4lStrYc0SqSKvo2%2F0ek498btD2%2BtnvVlUNWAXyWxXedh%2BQhNjhCSlleguvS5XbFjfpE1tJrI6FBcNQQeSMANS%2BafEDgzz7YWER8l6An4swbPZA45A3ilaEutXro7nIobUT4qfMtfgDcTftfmdgf38cZ302FOchK9WbjunoZvLXY2YZYoc7HKZtOj6N8rHkzD3wZ%2FNBjqkAVauRMMJ%2Brmaww0rPuj0B1BVd6vcNWARkk7xm3fkt2jpckKDNhO2TT799aq%2BWEs%2BZYLfWf043OCuwtOX86Yu2%2BKIkmaqh2AGyKSXRfQ9kwFNoT66bGTNNn%2FDVkguY9bnZRFPEfSz6plhPkhPLmRbCx4CpOM%2BEjk7bimPuXZ78xkKi329gLqAWlqWc3zGZu1oWRc4AOP7ulM7IZGfKlCN6dnL92hU&X-Amz-Signature=adfa1c04f051af96dffcd44f136408f63b641a81cf205c2b1afb150546d87292&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+### 3. 需求（~5分钟）
+目标：对要设计的系统有清晰定义。
 
 #### 功能需求（Functional Requirements）
-需求要有重点。后续设计都围绕你定义的需求展开，所以必须有优先级意识。
+需求要聚焦。后续设计是围绕你确认过的需求展开的，因此优先级必须有策略。
 
 #### 非功能需求（Non-functional Requirements）
-常见句式是“系统需要能够……”或“系统需要具备……”。如果不熟悉业务场景，可以用以下清单辅助：
-
-1. **CAP 定理**：系统优先一致性还是可用性（分区容忍默认必须考虑）。
-2. **环境约束**：例如是否运行在移动端、低内存设备、低带宽环境。
-3. **可扩展性**：是否存在明显突发流量或周期峰值。
-4. **延迟目标**：用户请求要多快返回，尤其是重计算请求。
-5. **持久性**：是否允许数据丢失。
-6. **安全性**：数据保护、访问控制、合规要求。
-7. **容错性**：冗余、故障转移、恢复能力。
-8. **合规性**：是否需要满足法律或行业监管要求。
+如果你不熟悉业务域，可以从以下清单切入：
+1. CAP 取舍：一致性还是可用性优先（分区容忍在分布式里默认要考虑）。
+2. 环境约束：移动端、低带宽、低内存等条件。
+3. 可扩展性：是否有突发流量、固定时段高峰。
+4. 延迟：接口响应时间目标，尤其是重计算链路。
+5. 持久性：可否容忍数据丢失。
+6. 安全：数据保护、访问控制、合规。
+7. 容错：故障时的冗余、切换、恢复能力。
+8. 合规：行业监管、法律约束。
 
 #### 容量估算（Capacity Estimation）
-建议不要在最开始就做大量估算。可以先和面试官说明：在设计过程中遇到关键决策点时再做计算。
+建议不要一开始就做大段估算。可以先说明：在遇到关键架构决策时再估算。
 
-例如在设计“社交平台热门话题 TopK 系统”时，你需要估算话题规模，判断：
-- 单机最小堆是否足够；
-- 还是必须多实例分片。
+例如设计社交平台热门 TopK，如果你要决定是否单机最小堆足够，还是必须分片到多实例，必须先估算话题规模。
 
-这个判断会直接影响架构。
+### 4. 核心实体（~2分钟）
+先列核心实体（Core Entities），用于统一术语、锚定关键数据、搭建设计骨架。
 
-### 2) 核心实体（约 2 分钟）
-先识别系统核心实体（Core Entities）。这样可以：
-1. 统一术语。
-2. 明确关键数据。
-3. 为后续设计搭骨架。
+不要在一开始就写完整数据模型。随着设计推进，你会发现更多实体和关系。
 
-不建议在这一阶段一次性列完整数据模型。因为随着设计推进，你会不断发现新的实体和关系。先列最小集合，后续迭代补齐。
+### 5. API / 系统接口（~5分钟）
+常见风格：REST / GraphQL / RPC。
 
-### 3) API 或系统接口（约 5 分钟）
-可选接口风格：REST / GraphQL / RPC。
-
-REST 设计里，资源名建议使用复数名词。
+REST 里资源建议使用复数名词。例如：
 
 ```http
 POST /v1/tweets
@@ -82,114 +78,289 @@ body: { "followee_id": string }
 GET /v1/feed -> Tweet[]
 ```
 
-### 4) 数据流（约 5 分钟）
-对于数据处理系统，建议描述“输入 -> 处理链路 -> 输出”的高层流程。这有助于解释系统行为，而不是只堆组件。
+### 6. 数据流（~5分钟）
+对于数据处理类系统，建议描述高层处理链路：输入 -> 处理步骤 -> 输出。
 
-### 5) 高层设计（约 10-15 分钟）
-用“方框 + 箭头”表示组件和交互（如服务、数据库、缓存等）。
+### 7. 高层设计（~10-15分钟）
+画方框和箭头，描述组件及交互（服务、数据库、缓存等）。
 
-核心目标是先交付一个满足 API 和核心需求的可用架构，不要过早陷入复杂细节。
+核心目标：先交付满足 API 与需求的可工作架构。不要过早堆复杂度。
 
-> 常见问题：候选人太早堆复杂度，最后无法交付完整方案。建议先做简洁可运行方案，再在 Deep Dive 阶段补复杂度。
+### 8. 深入讨论（Deep Dives，~10分钟）
+通过以下方式加固方案：
+- 覆盖并满足所有非功能需求
+- 处理边界场景
+- 识别并解决瓶颈
+- 根据面试官追问迭代优化
 
-### 6) 深挖（约 10 分钟）
-通过以下方式加固设计：
-- 验证是否满足所有非功能需求。
-- 覆盖边界场景。
-- 识别并处理瓶颈。
-- 根据面试官追问持续优化。
-
-资历越高，越应主动主导 Deep Dive。
+资历越高，越应该主动主导 deep dive。
 
 ---
 
 ## 核心概念（Core Concepts）
 
-核心概念是系统设计面试中跨题通用的底层能力。它们不依赖某个具体技术栈，是系统设计讨论的“词汇和语法”。
-
-在讨论“如何扩展某个业务系统”之前，你需要先真正理解缓存、分片、网络通信等基础能力。
+核心概念是系统设计面试中的通用底层能力。它不依赖具体技术栈，几乎每道题都会出现。
 
 ### 网络基础（Networking Essentials）
-系统设计面试不要求你展开到网络协议最底层，但你需要掌握分布式系统中高频出现的实践问题：服务如何通信、连接慢/断时如何处理。
+你需要掌握服务间通信和连接故障处理的实战要点。
 
-#### 通信协议选择
-默认大多数系统使用 **HTTP over TCP**。这是最常见、最稳妥的默认选项。
+默认多数系统选择 HTTP over TCP。除非有明确理由，否则这是最稳妥默认。
 
-#### WebSockets vs SSE
-- **SSE**：单向推送，客户端建立连接后由服务端持续下发数据；实现简单，适合通知/实时看板。
-- **WebSocket**：双向通信，适合聊天、协同编辑等需要双向高频交互的场景。
+网络相关图：
 
-两者都是有状态长连接，意味着你不能只把它们“随便挂在普通负载均衡后面”，还要考虑连接保持和故障切换。
+![Networking Essentials](https://prod-files-secure.s3.us-west-2.amazonaws.com/8abd5765-7fea-4ac2-b4e0-dcd6e92e0a76/6902a050-b6f8-43b4-8cba-7cbdfd04c210/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466ZXLCA7FA%2F20260304%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260304T075106Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQDsVegJzUDjOVzhPLG9owsPW6PXyH56tkSt3Qn1Th90kgIhAN4iuJawrJ18M39Xdx3efNVZTs685gkPIp2lgaBrsURwKogECLH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgyNRgmZWnCZ7vcJ0MMq3AMiyL0W%2B7NC0Pp5hSrBwh%2B3PksqjLZ20eq3bUVUTuGOKWK3kwrLKCBSyzyb52UO4tkcWIQ2Z1w8RbptgF2dgdWP5ruvL3hqBbCdZj6NqT9v7zFrPrtR0Me4huQPx1PGGrFA90MyCguSY59taT8GE%2BjwH8X5duLlOJiPFcRzIp2x8LtophHffOtQEnCdlqEdWXHLwcmybQ2EFEHyJD23ErXCNjQ6E6m%2FSjdq4OTkPS%2FB2OeVQs043h7B3TDi75vxfjDjxFBof8p6eYGQAigi0t6lA67r55b0kljiA7Ofl05OkIOzk%2Bt7kJTVveor6cpDZTd4nCRRP73JOTHyT7v%2FynQZoVThM6Tibz4HNatFsldBLZqYCFkSIoUAJczeV%2BoEO0jvtXe%2F4%2FvJqdmKnpIUrnnC7NWkYlp0SZLwaJKPJZLYSYwQFE3HUgfc9bZ6FFy4lStrYc0SqSKvo2%2F0ek498btD2%2BtnvVlUNWAXyWxXedh%2BQhNjhCSlleguvS5XbFjfpE1tJrI6FBcNQQeSMANS%2BafEDgzz7YWER8l6An4swbPZA45A3ilaEutXro7nIobUT4qfMtfgDcTftfmdgf38cZ302FOchK9WbjunoZvLXY2YZYoc7HKZtOj6N8rHkzD3wZ%2FNBjqkAVauRMMJ%2Brmaww0rPuj0B1BVd6vcNWARkk7xm3fkt2jpckKDNhO2TT799aq%2BWEs%2BZYLfWf043OCuwtOX86Yu2%2BKIkmaqh2AGyKSXRfQ9kwFNoT66bGTNNn%2FDVkguY9bnZRFPEfSz6plhPkhPLmRbCx4CpOM%2BEjk7bimPuXZ78xkKi329gLqAWlqWc3zGZu1oWRc4AOP7ulM7IZGfKlCN6dnL92hU&X-Amz-Signature=a520fc081ab75e7d10505e07646c45960547708c51956d2ba436ae49fd80cdd0&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+#### WebSocket vs SSE
+- SSE 是单向推送，适合通知、比分等。
+- WebSocket 是双向通信，适合聊天、协同编辑。
+
+两者都是有状态连接，需考虑连接保持与节点故障时的连接迁移。
 
 #### gRPC
-适合内部服务间高性能通信（HTTP/2 + 二进制序列化），但通常不用于公网浏览器直连场景。
+适合内部服务高性能通信（HTTP/2 + 二进制序列化），但不常用于浏览器公网 API。
 
 #### 负载均衡
-- **L7 负载均衡**：按应用层内容路由，灵活。
-- **L4 负载均衡**：按 TCP 连接分发，更快但更简单。
+- L7：可按 HTTP 内容路由，灵活。
+- L4：按 TCP 分发，更快但能力更基础。
 
 ### API 设计
-高频要点：
-- 大结果集要分页。
-- 实时数据优先 Cursor 分页，普通场景 Offset 也可。
-- 认证常见：用户会话用 JWT，服务间调用用 API Key。
-- 容易被滥用的接口要加限流。
+- 大列表要分页。
+- 实时数据更适合游标分页（cursor），普通场景 offset 也可。
+- 用户会话可用 JWT，服务间可用 API Key。
+- 容易被滥用的接口需要限流。
 
 ### 数据建模
-常见话题是 SQL 与 NoSQL 的取舍。
+SQL 与 NoSQL 的取舍是高频题。
 
 ### 数据库索引
-索引是提升查询性能的关键手段。
+索引是提升查询性能的核心手段。
 
-### 缓存（Caching）
-当数据库被大量读请求压垮时，可以把高频数据放入内存缓存，减少回源。
+### 缓存
+当数据库读压力过高时，缓存是首选读扩展方案。
 
-缓存的难点不在“加缓存”，而在“缓存失效（invalidation）”。
+难点不在“加缓存”，而在“缓存失效策略（invalidation）”。
 
 ### 分片（Sharding）
-当单库在存储容量、写吞吐、读吞吐上到达瓶颈时，需要水平拆分到多个独立节点。
+当单库达到存储、写吞吐、读吞吐瓶颈时，需要水平拆分。
 
-最关键决策：**分片键（shard key）**。
+最关键决策：分片键（shard key）。
 
-分片会引入新问题：
-- 跨分片事务复杂。
-- 热点分片。
-- 重分片成本高。
+分片会带来跨分片事务、热点分片、重分片成本等新问题。
 
 ### 一致性哈希（Consistent Hashing）
-一致性哈希使用虚拟环，在节点增删时只影响局部映射，降低迁移成本。
+使用虚拟环，节点变动时仅影响局部数据迁移。
 
-### CAP 定理
+### CAP
 常见取舍是 CP 或 AP。
 
 ### 关键数量级（Numbers to Know）
-很多设计决策必须依赖数量级判断：
-- 是否需要分片数据库？
-- 单 Redis 实例是否足够？
+架构决策离不开量级判断。例如：要不要分片、单 Redis 能否扛住。
 
-现代硬件能力通常比候选人直觉更强。常见经验值：
-- 优化良好的数据库可达到高并发事务处理（场景相关）。
-- 单 Redis 实例可达到较高操作吞吐。
+经验量级：
+- 优化良好的数据库可达到较高 QPS/TPS。
+- 单 Redis 实例可达到十万级操作吞吐。
 
-更关键的是理解不同介质延迟差异：
-- 内存访问：纳秒级。
-- SSD 读取：微秒级。
-- 同机房网络：毫秒级。
-- 跨洲网络：几十到几百毫秒。
+更重要的是延迟层级差：
+- 内存：纳秒级
+- SSD：微秒级
+- 同机房网络：毫秒级
+- 跨洲网络：几十到几百毫秒
 
-这些差异决定了缓存、地域部署、同步策略等架构取舍。
+这些差异会直接影响缓存、跨地域部署和一致性策略。
 
-## 指标与扩展触发点（原文表格翻译）
+原文表格（翻译）：
 
-| 组件 | 关键指标 | 扩展触发信号 |
+| 组件 | 关键指标 | 扩展触发 |
 |---|---|---|
-| 缓存（Caching） | 约 1ms 延迟；10万+ ops/s；受内存容量约束 | 命中率 < 80%；延迟 > 1ms；内存使用 > 80%；缓存抖动严重 |
-| 数据库（Databases） | 高吞吐事务处理；低读延迟；大容量存储 | 写吞吐接近上限；未命中缓存读延迟持续升高；出现跨地域需求 |
-| 应用服务器（App Servers） | 高并发连接；多核 CPU；大内存配置 | CPU 长期高位；响应超 SLA；连接数逼近单实例上限；内存长期高水位 |
-| 消息队列（Message Queues） | 高消息吞吐；低端到端延迟；可扩展存储 | 吞吐逼近 broker 上限；分区规模逼近集群上限；消费堆积持续增长 |
+| 缓存 | ~1ms 延迟；100k+ ops/s；内存上限约 1TB | 命中率 < 80%；延迟 > 1ms；内存 > 80%；缓存抖动 |
+| 数据库 | 最高约 50k TPS；缓存命中读延迟 < 5ms；存储可达 64TiB+ | 写吞吐 > 10k TPS；未命中读延迟 > 5ms；需要跨地域 |
+| 应用服务器 | 100k+ 并发连接；8-64 核；64-512GB RAM（可到 2TB） | CPU > 70%；响应超 SLA；连接逼近上限；内存 > 80% |
+| 消息队列 | 单 broker 最高约 1M msg/s；端到端延迟 < 5ms；50TB 存储 | 吞吐逼近 800k msg/s；分区逼近集群上限；消费积压增长 |
 
 ---
 
-## 译者备注
+## 关键技术（Key Technologies）
 
-这篇内容的定位是“面试交付框架速成”。它的价值在于帮助你在有限时间内有序交付一套可工作的系统设计答案。若想进一步提升深度，建议配合 DDIA、真实生产架构案例和反复口述演练。
+这一部分覆盖可解决 90% 系统设计题的技术类别。
+
+### 核心数据库（Core Database）
+几乎所有系统设计题都需要持久化数据。常见选择是关系型数据库和 NoSQL。
+
+注意：面试里不建议机械对比“SQL vs NoSQL”。泛化结论往往暴露经验不足。多数情况下，你不需要专门做显式对比，除非问题场景确实要求。
+
+### 关系型数据库（Relational Databases）
+你需要熟悉：
+- SQL Join
+- Index
+- 事务
+
+### NoSQL 数据库
+适用场景：
+- 灵活数据模型
+- 水平扩展
+- 大数据与实时应用
+
+你需要掌握：
+- 数据模型
+- 一致性模型
+- 索引
+- 扩展方式
+
+### Blob 存储
+大文件（图片、视频、二进制文件）不应放传统数据库。成本高且效率差。
+
+常见场景：YouTube、Instagram、Dropbox 类设计。
+
+应掌握：
+- 高持久性（复制、纠删码）
+- 高扩展性（如 S3）
+- 成本优势
+- 安全能力（静态/传输加密、访问控制）
+- 客户端直传直下载
+- 分片上传（chunking）
+
+### 搜索优化数据库（Search Optimized Database）
+做全文检索时常用。
+
+应掌握：
+- 倒排索引（Inverted Index）
+- 分词（Tokenization）
+- 词干提取（Stemming）
+- 模糊搜索（Fuzzy Search）
+- 集群扩展与分片
+
+### API Gateway
+面试通常不会深挖网关实现细节，除非与题目本身高度相关。
+
+### Load Balancer
+高流量场景下用于分发请求、避免单点过载。
+
+### Queue
+队列常用于：
+1. 削峰缓冲
+2. 工作分发
+
+应掌握：
+- 消息顺序（多数 FIFO）
+- 重试机制
+- 死信队列（DLQ）
+- 分区扩展
+- 背压（Backpressure）
+
+注意：强同步低延迟（如 <500ms）链路里，盲目加队列常会破坏延迟目标。
+
+### Streams / Event Sourcing
+事件溯源是把状态变化记录为事件序列，可重放恢复任意时刻状态。
+
+相比队列，流（stream）可以保留数据并支持重复消费，适合：
+1. 实时大规模处理
+2. 复杂事件处理（含 event sourcing）
+3. 多消费组并发消费
+
+应掌握：
+- 分区扩展
+- 多消费组
+- 复制
+- 窗口计算（windowing）
+
+### 分布式锁（Distributed Lock）
+当跨进程/跨服务争抢同一资源时使用。常见实现依赖 Redis/ZooKeeper。
+
+应掌握：
+- 获取/释放机制（如 Redlock）
+- 过期机制（避免死锁）
+- 锁粒度
+- 死锁风险
+
+### 分布式缓存（Distributed Cache）
+用于降低延迟和读扩展。
+
+应掌握：
+- 淘汰策略：LRU/FIFO/LFU
+- 缓存失效策略
+- 写入策略：Write-Through / Write-Around / Write-Back
+
+### CDN
+CDN 通过全球边缘节点加速内容分发，不只可缓存静态资源，也可缓存 API 响应。
+
+---
+
+## 常见模式（Common Patterns）
+
+模式识别能力是区分资深与初级候选人的关键能力之一。掌握模式能帮你快速识别重点与常见故障路径。
+
+### 1) 实时更新推送（Pushing Realtime Updates）
+协议可选：轮询、SSE、WebSocket。
+
+服务端可用 Pub/Sub 解耦发布与订阅；更重处理场景可用一致性哈希环上的有状态服务。
+
+![Pushing Realtime Updates](https://prod-files-secure.s3.us-west-2.amazonaws.com/8abd5765-7fea-4ac2-b4e0-dcd6e92e0a76/dd36f254-df5e-4065-a4d0-fd5d36c0267b/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466ZXLCA7FA%2F20260304%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260304T075106Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQDsVegJzUDjOVzhPLG9owsPW6PXyH56tkSt3Qn1Th90kgIhAN4iuJawrJ18M39Xdx3efNVZTs685gkPIp2lgaBrsURwKogECLH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgyNRgmZWnCZ7vcJ0MMq3AMiyL0W%2B7NC0Pp5hSrBwh%2B3PksqjLZ20eq3bUVUTuGOKWK3kwrLKCBSyzyb52UO4tkcWIQ2Z1w8RbptgF2dgdWP5ruvL3hqBbCdZj6NqT9v7zFrPrtR0Me4huQPx1PGGrFA90MyCguSY59taT8GE%2BjwH8X5duLlOJiPFcRzIp2x8LtophHffOtQEnCdlqEdWXHLwcmybQ2EFEHyJD23ErXCNjQ6E6m%2FSjdq4OTkPS%2FB2OeVQs043h7B3TDi75vxfjDjxFBof8p6eYGQAigi0t6lA67r55b0kljiA7Ofl05OkIOzk%2Bt7kJTVveor6cpDZTd4nCRRP73JOTHyT7v%2FynQZoVThM6Tibz4HNatFsldBLZqYCFkSIoUAJczeV%2BoEO0jvtXe%2F4%2FvJqdmKnpIUrnnC7NWkYlp0SZLwaJKPJZLYSYwQFE3HUgfc9bZ6FFy4lStrYc0SqSKvo2%2F0ek498btD2%2BtnvVlUNWAXyWxXedh%2BQhNjhCSlleguvS5XbFjfpE1tJrI6FBcNQQeSMANS%2BafEDgzz7YWER8l6An4swbPZA45A3ilaEutXro7nIobUT4qfMtfgDcTftfmdgf38cZ302FOchK9WbjunoZvLXY2YZYoc7HKZtOj6N8rHkzD3wZ%2FNBjqkAVauRMMJ%2Brmaww0rPuj0B1BVd6vcNWARkk7xm3fkt2jpckKDNhO2TT799aq%2BWEs%2BZYLfWf043OCuwtOX86Yu2%2BKIkmaqh2AGyKSXRfQ9kwFNoT66bGTNNn%2FDVkguY9bnZRFPEfSz6plhPkhPLmRbCx4CpOM%2BEjk7bimPuXZ78xkKi329gLqAWlqWc3zGZu1oWRc4AOP7ulM7IZGfKlCN6dnL92hU&X-Amz-Signature=af025af973722575d638b203893fdd459e54fef50e87861e0e361610d5d6c676&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+### 2) 长任务处理（Managing Long-Running Tasks）
+对视频转码、报表生成等长耗时任务，采用“快速确认 + 异步执行”模式：
+- API 快速校验并入队，立即返回 Job ID
+- Worker 后台消费执行
+
+优势：
+- 用户响应快
+- Web 与 Worker 可独立扩容
+- 故障隔离更好
+
+![Managing Long-Running Tasks](https://prod-files-secure.s3.us-west-2.amazonaws.com/8abd5765-7fea-4ac2-b4e0-dcd6e92e0a76/7cfe00f5-3479-4dac-9892-c14fd5482958/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466ZXLCA7FA%2F20260304%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260304T075106Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQDsVegJzUDjOVzhPLG9owsPW6PXyH56tkSt3Qn1Th90kgIhAN4iuJawrJ18M39Xdx3efNVZTs685gkPIp2lgaBrsURwKogECLH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgyNRgmZWnCZ7vcJ0MMq3AMiyL0W%2B7NC0Pp5hSrBwh%2B3PksqjLZ20eq3bUVUTuGOKWK3kwrLKCBSyzyb52UO4tkcWIQ2Z1w8RbptgF2dgdWP5ruvL3hqBbCdZj6NqT9v7zFrPrtR0Me4huQPx1PGGrFA90MyCguSY59taT8GE%2BjwH8X5duLlOJiPFcRzIp2x8LtophHffOtQEnCdlqEdWXHLwcmybQ2EFEHyJD23ErXCNjQ6E6m%2FSjdq4OTkPS%2FB2OeVQs043h7B3TDi75vxfjDjxFBof8p6eYGQAigi0t6lA67r55b0kljiA7Ofl05OkIOzk%2Bt7kJTVveor6cpDZTd4nCRRP73JOTHyT7v%2FynQZoVThM6Tibz4HNatFsldBLZqYCFkSIoUAJczeV%2BoEO0jvtXe%2F4%2FvJqdmKnpIUrnnC7NWkYlp0SZLwaJKPJZLYSYwQFE3HUgfc9bZ6FFy4lStrYc0SqSKvo2%2F0ek498btD2%2BtnvVlUNWAXyWxXedh%2BQhNjhCSlleguvS5XbFjfpE1tJrI6FBcNQQeSMANS%2BafEDgzz7YWER8l6An4swbPZA45A3ilaEutXro7nIobUT4qfMtfgDcTftfmdgf38cZ302FOchK9WbjunoZvLXY2YZYoc7HKZtOj6N8rHkzD3wZ%2FNBjqkAVauRMMJ%2Brmaww0rPuj0B1BVd6vcNWARkk7xm3fkt2jpckKDNhO2TT799aq%2BWEs%2BZYLfWf043OCuwtOX86Yu2%2BKIkmaqh2AGyKSXRfQ9kwFNoT66bGTNNn%2FDVkguY9bnZRFPEfSz6plhPkhPLmRbCx4CpOM%2BEjk7bimPuXZ78xkKi329gLqAWlqWc3zGZu1oWRc4AOP7ulM7IZGfKlCN6dnL92hU&X-Amz-Signature=611fd07c6af75db3a5d85e45991ac63f2cc1a431ad98eb08f910764a08bf6090&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+### 3) 处理资源竞争（Dealing with Contention）
+多人同时抢同一资源（如最后一张票）时，需要防竞态和保一致。
+
+方案从单库层（悲观锁、乐观并发控制）到分布式层（分布式锁、2PC、队列串行化）逐步增强。
+
+### 4) 读扩展（Scaling Reads）
+用户量增长后，读通常先成为瓶颈。
+
+常见路径：
+1. 先优化数据库（索引、必要反范式）
+2. 用只读副本水平扩展
+3. 加外部缓存（Redis）和 CDN
+
+关键问题：缓存失效、副本延迟、热点 key。
+
+### 5) 写扩展（Scaling Writes）
+通过分片、批处理、负载治理应对写瓶颈。
+
+关键点：
+- 选择好的分区键（均衡负载并尽量保持相关数据邻近）
+- 用队列吸收写突发
+- 过载时负载丢弃（load shedding）
+- 批写降低单次操作开销
+
+### 6) 大文件处理（Handling Large Blobs）
+应用服务签发临时凭证（presigned URL），客户端直传对象存储；下载通过 CDN + 签名 URL 控制权限。
+
+这样可以避免应用服务器成为瓶颈，并支持断点续传、上传进度和全球分发。
+
+![Handling Large Blobs](https://prod-files-secure.s3.us-west-2.amazonaws.com/8abd5765-7fea-4ac2-b4e0-dcd6e92e0a76/5583641e-5444-476e-9e6b-a2c20abee9c4/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466ZXLCA7FA%2F20260304%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260304T075106Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQDsVegJzUDjOVzhPLG9owsPW6PXyH56tkSt3Qn1Th90kgIhAN4iuJawrJ18M39Xdx3efNVZTs685gkPIp2lgaBrsURwKogECLH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgyNRgmZWnCZ7vcJ0MMq3AMiyL0W%2B7NC0Pp5hSrBwh%2B3PksqjLZ20eq3bUVUTuGOKWK3kwrLKCBSyzyb52UO4tkcWIQ2Z1w8RbptgF2dgdWP5ruvL3hqBbCdZj6NqT9v7zFrPrtR0Me4huQPx1PGGrFA90MyCguSY59taT8GE%2BjwH8X5duLlOJiPFcRzIp2x8LtophHffOtQEnCdlqEdWXHLwcmybQ2EFEHyJD23ErXCNjQ6E6m%2FSjdq4OTkPS%2FB2OeVQs043h7B3TDi75vxfjDjxFBof8p6eYGQAigi0t6lA67r55b0kljiA7Ofl05OkIOzk%2Bt7kJTVveor6cpDZTd4nCRRP73JOTHyT7v%2FynQZoVThM6Tibz4HNatFsldBLZqYCFkSIoUAJczeV%2BoEO0jvtXe%2F4%2FvJqdmKnpIUrnnC7NWkYlp0SZLwaJKPJZLYSYwQFE3HUgfc9bZ6FFy4lStrYc0SqSKvo2%2F0ek498btD2%2BtnvVlUNWAXyWxXedh%2BQhNjhCSlleguvS5XbFjfpE1tJrI6FBcNQQeSMANS%2BafEDgzz7YWER8l6An4swbPZA45A3ilaEutXro7nIobUT4qfMtfgDcTftfmdgf38cZ302FOchK9WbjunoZvLXY2YZYoc7HKZtOj6N8rHkzD3wZ%2FNBjqkAVauRMMJ%2Brmaww0rPuj0B1BVd6vcNWARkk7xm3fkt2jpckKDNhO2TT799aq%2BWEs%2BZYLfWf043OCuwtOX86Yu2%2BKIkmaqh2AGyKSXRfQ9kwFNoT66bGTNNn%2FDVkguY9bnZRFPEfSz6plhPkhPLmRbCx4CpOM%2BEjk7bimPuXZ78xkKi329gLqAWlqWc3zGZu1oWRc4AOP7ulM7IZGfKlCN6dnL92hU&X-Amz-Signature=44c95f8c66bc5a077a0fce5135113b4a345d6bc9f705a2944bc04f3c16e9fb17&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+### 7) 多步骤流程（Multi-Step Processes）
+复杂业务流程涉及多服务、长链路和重试容错（如下单、开户、支付）。
+
+方案从单服务编排到工作流引擎（Temporal、AWS Step Functions）逐步升级。
+
+关键思想：把分散的状态管理和手工错误处理，转成声明式工作流，让系统保障执行语义并保留完整审计轨迹。
+
+![Multi-Step Processes](https://prod-files-secure.s3.us-west-2.amazonaws.com/8abd5765-7fea-4ac2-b4e0-dcd6e92e0a76/2d3d71e7-e0be-4813-8b9c-306d84e9c361/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466ZXLCA7FA%2F20260304%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260304T075106Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQDsVegJzUDjOVzhPLG9owsPW6PXyH56tkSt3Qn1Th90kgIhAN4iuJawrJ18M39Xdx3efNVZTs685gkPIp2lgaBrsURwKogECLH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgyNRgmZWnCZ7vcJ0MMq3AMiyL0W%2B7NC0Pp5hSrBwh%2B3PksqjLZ20eq3bUVUTuGOKWK3kwrLKCBSyzyb52UO4tkcWIQ2Z1w8RbptgF2dgdWP5ruvL3hqBbCdZj6NqT9v7zFrPrtR0Me4huQPx1PGGrFA90MyCguSY59taT8GE%2BjwH8X5duLlOJiPFcRzIp2x8LtophHffOtQEnCdlqEdWXHLwcmybQ2EFEHyJD23ErXCNjQ6E6m%2FSjdq4OTkPS%2FB2OeVQs043h7B3TDi75vxfjDjxFBof8p6eYGQAigi0t6lA67r55b0kljiA7Ofl05OkIOzk%2Bt7kJTVveor6cpDZTd4nCRRP73JOTHyT7v%2FynQZoVThM6Tibz4HNatFsldBLZqYCFkSIoUAJczeV%2BoEO0jvtXe%2F4%2FvJqdmKnpIUrnnC7NWkYlp0SZLwaJKPJZLYSYwQFE3HUgfc9bZ6FFy4lStrYc0SqSKvo2%2F0ek498btD2%2BtnvVlUNWAXyWxXedh%2BQhNjhCSlleguvS5XbFjfpE1tJrI6FBcNQQeSMANS%2BafEDgzz7YWER8l6An4swbPZA45A3ilaEutXro7nIobUT4qfMtfgDcTftfmdgf38cZ302FOchK9WbjunoZvLXY2YZYoc7HKZtOj6N8rHkzD3wZ%2FNBjqkAVauRMMJ%2Brmaww0rPuj0B1BVd6vcNWARkk7xm3fkt2jpckKDNhO2TT799aq%2BWEs%2BZYLfWf043OCuwtOX86Yu2%2BKIkmaqh2AGyKSXRfQ9kwFNoT66bGTNNn%2FDVkguY9bnZRFPEfSz6plhPkhPLmRbCx4CpOM%2BEjk7bimPuXZ78xkKi329gLqAWlqWc3zGZu1oWRc4AOP7ulM7IZGfKlCN6dnL92hU&X-Amz-Signature=7aa5c03c96140b56a0c66c2c1f32f6d6e0c7c7460cf988ecc48389351ceeb6a1&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+### 8) 基于地理位置的服务（Proximity-Based Services）
+如打车、即时配送等，需要按地理邻近搜索实体。常用方案：
+- PostgreSQL + PostGIS
+- Redis GEO
+- Elasticsearch Geo Query
+
+### 9) 模式选择（Pattern Selection）
+模式常需组合使用。例如视频平台可能同时用到：
+- Large Blobs（上传存储）
+- Long-Running Tasks（转码）
+- Realtime Updates（进度通知）
+- Multi-Step Processes（流程编排）
+
+策略：先简单方案（轮询、单服务编排），只有在明确需求驱动下再引入复杂度。
+
+在面试中，主动识别并套用这些模式，能体现架构成熟度，也能避免陷入实现细节泥潭。
