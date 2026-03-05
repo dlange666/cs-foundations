@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
-  <rect width="1200" height="420" fill="#f2f8ff"/>
-  <rect x="40" y="40" width="1120" height="340" rx="18" fill="#ffffff" stroke="#d4e5fa"/>
-  <text x="600" y="170" text-anchor="middle" font-size="44" font-family="Arial, sans-serif" fill="#1f4f8c">Handling Large Blobs</text>
-  <text x="600" y="230" text-anchor="middle" font-size="24" font-family="Arial, sans-serif" fill="#4c6e9a">Presigned URL -> Object Storage -> CDN</text>
-</svg>
