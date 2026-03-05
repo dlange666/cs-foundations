@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
-  <rect width="1200" height="420" fill="#fff8f2"/>
-  <rect x="40" y="40" width="1120" height="340" rx="18" fill="#ffffff" stroke="#f1dfc7"/>
-  <text x="600" y="170" text-anchor="middle" font-size="44" font-family="Arial, sans-serif" fill="#8a4b00">Managing Long-Running Tasks</text>
-  <text x="600" y="230" text-anchor="middle" font-size="24" font-family="Arial, sans-serif" fill="#9a6b2f">Request -> Queue -> Worker -> Job Status</text>
-</svg>
