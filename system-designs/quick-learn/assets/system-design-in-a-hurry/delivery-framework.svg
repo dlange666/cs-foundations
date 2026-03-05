@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <rect width="1200" height="420" fill="#f5f7fb"/>
+  <rect x="40" y="40" width="1120" height="340" rx="18" fill="#ffffff" stroke="#d9e2f2"/>
+  <text x="600" y="170" text-anchor="middle" font-size="44" font-family="Arial, sans-serif" fill="#1f3b63">Delivery Framework</text>
+  <text x="600" y="230" text-anchor="middle" font-size="24" font-family="Arial, sans-serif" fill="#4d6480">Requirements -> Core Entities -> API -> Data Flow -> HLD -> Deep Dives</text>
+</svg>
